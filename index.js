@@ -217,3 +217,48 @@ console.log("Hasil akhir antrian:");
 antrian.forEach((nama, index) => {
   console.log(`${index + 1}. ${nama}`);
 });
+
+//Prototype
+Mahasiswa.prototype.tidur = function (jam) {
+  this.energi += jam;
+  return `selamat tidur ${this.nama}`;
+};
+
+Mahasiswa.prototype.makan = function (porsi) {
+  this.energi += porsi;
+  return `selamat makan ${this.nama}`;
+};
+
+Mahasiswa.prototype.main = function (jam) {
+  this.energi -= jam;
+  return `selmat main ${this.nama}`;
+};
+
+function Mahasiswa(nama, energi) {
+  this.nama = nama;
+  this.energi = energi;
+}
+
+let Cryl = new Mahasiswa(`Cryl`, 10);
+
+console.table(Cryl);
+console.table(Cryl.tidur(5));
+console.table(Cryl);
+
+let angka = [1, 4, 3];
+
+console.log(angka.sort());
+
+let add = (function () {
+  let total = 0;
+  return function () {
+    return ++total;
+  };
+})();
+
+console.log(add());
+console.log(add());
+console.log(add());
+console.log(add());
+
+
